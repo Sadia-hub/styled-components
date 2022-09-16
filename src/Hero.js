@@ -1,13 +1,24 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, {ThemeProvider} from 'styled-components'
 
-const color = "red"
+function Hero() {
+    const color = "red"
+
+const theme = {
+    color:{
+        text:"white"
+    },
+
+    responsive:{
+        mobile:"768px"
+    }
+}
 
 const Button = styled.button`
     border:2px solid black;
     padding:20px;
     background:${({bg})=>bg};
-    color:white;
+    color:${({theme})=>theme.color.text};
     border-radius:10px;
     margin:100px;
     font-size:30px;
@@ -24,14 +35,19 @@ const Button = styled.button`
         }
     }
 
+    @media (max-width:${({theme})=>theme.responsive.mobile}){
+        background:white;
+        color:black
+    }
+
 `
-function Hero() {
+
 
   return (
-        <div>
+        <ThemeProvider theme={theme}>
 
                 <Button bg="black">Hello World<span> I am span</span> </Button>
-        </div>   
+        </ThemeProvider>   
   )
 }
 
