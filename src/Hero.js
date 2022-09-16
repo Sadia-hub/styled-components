@@ -6,9 +6,11 @@ const color = "red"
 const Button = styled.button`
     border:2px solid black;
     padding:20px;
-    background:black;
+    background:${({bg})=>bg};
     color:white;
     border-radius:10px;
+    margin:100px;
+    font-size:30px;
 
     &:hover{
         color:black;
@@ -28,7 +30,7 @@ function Hero() {
   return (
         <div>
 
-                <Button>Hello World<span> I am span</span> </Button>
+                <Button bg="black">Hello World<span> I am span</span> </Button>
         </div>   
   )
 }
