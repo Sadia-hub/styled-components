@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, {ThemeProvider} from 'styled-components'
-
+import {GlobalStyles} from './styles/GlobalStyles'
 function Hero() {
     const color = "red"
 
@@ -45,7 +45,7 @@ const Button = styled.button`
 
   return (
         <ThemeProvider theme={theme}>
-
+                <GlobalStyles/>
                 <Button bg="black">Hello World<span> I am span</span> </Button>
         </ThemeProvider>   
   )
